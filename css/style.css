@@ -390,29 +390,50 @@ section {
 
 /* Seção equipe */
 
-#membros {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+#carrossel-equipe {
+    width: 100%;
 
-    gap: 50px;
+    overflow: hidden;
+
+    display: flex;
+}
+
+.carrossel-wrapper {
+    padding-right: 30px;
+
+    display: flex;
+    gap: 30px;
+    
+    animation: girar 10s linear infinite;
+}
+
+#carrossel-equipe:hover .carrossel-wrapper {
+    animation-play-state: paused;
+}
+
+#carrossel-equipe:hover .membro {
+    filter: grayscale(100%);
+}
+
+#carrossel-equipe:hover .membro:hover {
+    filter: grayscale(0%);
 }
 
 .membro {
+    width: 225px;
+
     text-align: center;
 
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
 
-    transition: transform 0.2s ease;
-}
-
-.membro:hover {
-    transform: scale(1.1);
+    transition: filter 0.2s ease;
 }
 
 .membro img {
-    width: 200px;
+    width: 100%;
+    height: auto;
 
     border: 2px solid var(--cor-principal);
     border-radius: 50%;
@@ -420,12 +441,6 @@ section {
     aspect-ratio: 1 / 1;
     object-position: middle;
     object-fit: cover;
-
-    transition: transform 0.2s ease;
-}
-
-.membro:hover img {
-    transform: rotate(10deg);
 }
 
 .nome-membro {
@@ -435,12 +450,6 @@ section {
 
     font-size: 1.75rem;
     font-weight: bold;
-
-    transition: color 0.2s ease;
-}
-
-.membro:hover .funcao-membro {
-    color: var(--texto-destaque);
 }
 
 /* Seção contato */
@@ -549,7 +558,7 @@ section {
     border: 0;
 
     background: var(--fundo-claro);
-    border:  1px solid var(--cor-principal);
+    border: 1px solid var(--cor-principal);
 
     color: white;
     font-size: 1.25rem;
@@ -675,23 +684,21 @@ section {
     #servicos {
         grid-template-columns: 1fr;
     }
+
+    /* Seção equipe */
+    .carrossel-wrapper {
+        animation-duration: 20s;
+    }
 }
 
 /* Animações */
 
 @keyframes girar {
-
-    0%,
-    45% {
-        transform: translateX(0);
+    from {
+        transform: translateX(0%);
     }
 
-    50%,
-    95% {
+    to {
         transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(-200%);
     }
 }

@@ -3,7 +3,7 @@
 /* Configurações iniciais */
 
 :root {
-    --cor-principal: hsl(6, 100%, 60%);
+    --cor-principal: hsl(4, 100%, 60%);
 
     --fundo-super-claro: hsl(268, 68%, 19%);
     --fundo-claro: hsl(268, 68%, 16%);
@@ -19,7 +19,7 @@
     --gradiente-mini-site: linear-gradient(-45deg,
             hsl(6, 100%, 20%),
             hsl(6, 100%, 60%));
-    --gradient-mini-cards: linear-gradient(180deg,
+    --gradiente-mini-cards: linear-gradient(180deg,
             hsl(0, 0%, 90%),
             hsl(0, 0%, 70%));
     --gradiente-botoes: linear-gradient(0deg,
@@ -210,25 +210,33 @@ section {
     gap: 30px;
 }
 
-#botoes-hero a {
+.btn-hero-wrapper {
+    padding: 2px;
+    border-radius: 1000px;
+
+    background-image: linear-gradient(to bottom right,
+            hsl(6, 100%, 60%),
+            hsl(6, 100%, 40%));
+}
+
+.btn-hero {
     padding: 15px 10px;
 
-    border-radius: 10px;
+    border-radius: 1000px;
 
-    box-shadow: 0 0 15px hsl(6, 100%, 50%, 75%);
-
-    background-color: var(--fundo-super-claro);
+    background-color: var(--fundo-claro);
 
     color: white;
     font-size: 1.25rem;
 
-    transition: background-color 0.1s ease,
-        box-shadow 0.1s ease;
+    display: block;
 }
 
-#botoes-hero a:hover {
-    background-color: var(--cor-principal);
-    box-shadow: none;
+.btn-hero:hover {
+    background-color: transparent;
+
+    box-shadow: 10px 0 30px rgba(255, 71, 51, 0.5),
+        -10px 0 30px hsla(6, 100%, 40%, 0.5);
 }
 
 /* Mini-site */
@@ -254,7 +262,7 @@ section {
 .mini-card {
     border-radius: 12px;
 
-    background: var(--gradient-mini-cards);
+    background: var(--gradiente-mini-cards);
 }
 
 /* Seção serviços */
@@ -315,6 +323,10 @@ section {
     font-weight: normal;
 }
 
+.servico:hover h3 {
+    color: var(--fundo);
+}
+
 /* Seção projetos */
 
 #projetos-container {
@@ -325,22 +337,30 @@ section {
     position: relative;
 }
 
-.carrossel {
+#carrossel {
     width: 100%;
     border-radius: 12px;
 
     overflow-x: hidden;
 }
 
-.faixa {
-    display: flex;
-
-    transform: translateX(-100%);
-}
-
 #faixa {
     display: flex;
     transition: transform 0.5s ease-in-out;
+}
+
+#prev-btn {
+    left: 0;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+#next-btn {
+    right: 0;
+    top: 50%;
+
+    transform: translate(50%, -50%);
 }
 
 .projeto {
@@ -373,19 +393,54 @@ section {
     background: var(--cor-principal);
 }
 
+/* Seção valores */
 
-#prev-button {
-    left: 0;
-    top: 50%;
+#valores-container {
+    width: 100%;
 
-    transform: translate(-50%, -50%);
+    display: flex;
 }
 
-#next-button {
-    right: 0;
-    top: 50%;
+.valor {
+    height: 200px;
+    margin-right: -10px;
 
-    transform: translate(50%, -50%);
+    background-image: var(--gradiente-botoes);
+
+    color: white;
+    font-size: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    position: relative;
+
+    clip-path: polygon(90% 0,
+            100% 50%,
+            90% 100%,
+            0% 100%,
+            10% 50%,
+            0% 0%);
+}
+
+.valor::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+
+    background-color: var(--fundo-escuro);
+
+    clip-path: inherit;
+
+    z-index: -1;
+
+    transition: background-color 0.1s ease;
+}
+
+.valor:hover::before {
+    background-color: transparent;
 }
 
 /* Seção equipe */
@@ -403,7 +458,7 @@ section {
 
     display: flex;
     gap: 30px;
-    
+
     animation: girar 10s linear infinite;
 }
 

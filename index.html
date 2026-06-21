@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <!-- teste -->
     <header>
         <a href="#" id="logo">IFaz<span>Site</span></a>
 
@@ -43,8 +42,13 @@
                 </p>
 
                 <div id="botoes-hero">
-                    <a href="#projetos">Ver projetos</a>
-                    <a href="#contato">Nos contate</a>
+                    <div class="btn-hero-wrapper">
+                        <a href="#projetos" class="btn-hero">Ver projetos</a>
+                    </div>
+
+                    <div class="btn-hero-wrapper">
+                        <a href="#contato" class="btn-hero">Nos contate</a>
+                    </div>
                 </div>
             </div>
 
@@ -115,17 +119,16 @@
             </div>
         </section>
 
-
         <section id="projetos">
             <h2>Conheça nossos clientes!</h2>
 
             <div id="projetos-container">
-                <button id="prev-button">
+                <button id="prev-btn">
                     <i class="fa-solid fa-angle-left"></i>
                 </button>
 
-                <div class="carrossel">
-                    <div class="faixa" id="faixa">
+                <div id="carrossel">
+                    <div id="faixa">
                         <div class="projeto">
                             <img src="images/projetos/terezinha-lava-e-passa.png" alt="Site 1">
                         </div>
@@ -138,7 +141,7 @@
                     </div>
                 </div>
 
-                <button id="next-button">
+                <button id="next-btn">
                     <i class="fa-solid fa-angle-right"></i>
                 </button>
             </div>
@@ -146,6 +149,13 @@
 
         <section id="valores">
             <h2>Nossos valores</h2>
+
+            <div id="valores-container">
+                <p class="valor">Compromisso</p>
+                <p class="valor">Transparência</p>
+                <p class="valor">Qualidade</p>
+                <p class="valor">Inovação</p>
+            </div>
         </section>
 
         <section id="equipe">

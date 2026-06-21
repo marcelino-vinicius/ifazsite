@@ -49,32 +49,24 @@ mediaMobile.addEventListener("change", (e) => {
     }
 });
 
-// -------------------------------= CARROSSEL 
+// Carrossel de projetos
 
 const faixa = document.getElementById('faixa');
-const nexbutton = document.getElementById('next-button');
-const prevbutton = document.getElementById('prev-button');
+const nexbutton = document.getElementById('next-btn');
+const prevbutton = document.getElementById('prev-btn');
 const projetos = document.querySelectorAll('.projeto');
 
 let index = 0;
 
 function updateCarrossel() {
     const width = projetos[0].clientWidth;
-    faixa.style.transform = `translateX(${-index * width }px)`;
+    faixa.style.transform = `translateX(${-index * width}px)`;
 
-}
-
-function updateCarrosselAuto(){ 
-    index++;
-    if(index > projetos.length - 1){
-        index = 0;
-    }
-    updateCarrossel();
 }
 
 nexbutton.addEventListener('click', () => {
-    index++; 
-    if(index > projetos.length - 1){
+    index++;
+    if (index > projetos.length - 1) {
         index = 0;
     }
     updateCarrossel();
@@ -82,13 +74,13 @@ nexbutton.addEventListener('click', () => {
 
 prevbutton.addEventListener('click', () => {
     index--;
-    if(index < 0){
+    if (index < 0) {
         index = projetos.length - 1;
     }
     updateCarrossel();
 })
 
-setInterval(updateCarrosselAuto, 10000); // Poderia simular o clique com: nextbutton.click()
+setInterval(() => { nexbutton.click(); }, 10000); // Poderia simular o clique com: nextbutton.click()
 
 
 //-------------------------------------- AREA DE CONTATO 

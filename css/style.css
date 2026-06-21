@@ -3,28 +3,39 @@
 /* Configurações iniciais */
 
 :root {
-    --cor-principal: hsl(4, 100%, 60%);
+    /* Cores bases */
+    --cor-principal: hsl(0, 100%, 60%);
+    --fundo: hsl(270, 70%, 15%);
 
-    --fundo-super-claro: hsl(268, 68%, 19%);
-    --fundo-claro: hsl(268, 68%, 16%);
-    --fundo: hsl(268, 68%, 13%);
-    --fundo-escuro: hsl(268, 68%, 10%);
+    /* Variações da cor principal */
+    --cor-principal-1: hsl(from var(--cor-principal) h s 40%);
+    --cor-principal-2: hsl(from var(--cor-principal) h s 20%);
 
+    /* Variações do fundo */
+    --fundo-1: hsl(from var(--fundo) h s 10%);
+    --fundo-2: hsl(from var(--fundo) h s 20%);
+    --fundo-3: hsl(from var(--fundo) h s 25%);
+
+    /* Texto */
     --texto-destaque: hsl(0, 0%, 95%);
     --texto: hsl(0, 0%, 70%);
 
-    --gradiente-logo: linear-gradient(-45deg,
-            hsl(6, 100%, 20%),
-            hsl(6, 100%, 60%) 30%);
-    --gradiente-mini-site: linear-gradient(-45deg,
-            hsl(6, 100%, 20%),
-            hsl(6, 100%, 60%));
-    --gradiente-mini-cards: linear-gradient(180deg,
+    /* Gradientes */
+    --gradiente-logo: linear-gradient(to bottom right,
+            var(--cor-principal) 30%,
+            var(--cor-principal-2));
+
+    --gradiente-botoes: linear-gradient(to bottom right,
+            var(--cor-principal),
+            var(--cor-principal-1));
+
+    --gradiente-mini-site: linear-gradient(to bottom right,
+            var(--cor-principal),
+            var(--cor-principal-2));
+
+    --gradiente-mini-cards: linear-gradient(to bottom,
             hsl(0, 0%, 90%),
             hsl(0, 0%, 70%));
-    --gradiente-botoes: linear-gradient(0deg,
-            hsl(6, 100%, 40%),
-            hsl(6, 100%, 60%));
 }
 
 html {
@@ -42,11 +53,10 @@ html {
 body {
     min-height: 100vh;
 
-    color: var(--texto);
-
-    background: var(--fundo-escuro) url("../images/background.png") fixed;
+    background: var(--fundo-1) url("../images/background.png") fixed;
     backdrop-filter: blur(10px);
 
+    color: var(--texto);
     font-family: "Open Sans", sans-serif;
 }
 
@@ -65,30 +75,29 @@ a {
 /* Cabeçalho */
 
 header {
-    padding: 15px 20px;
+    padding: 15px 15px 15px 20px;
 
-    border-bottom: 2px solid var(--fundo-claro);
-    background-color: var(--fundo-escuro);
+    border-bottom: 2px solid var(--fundo-2);
+
+    background: var(--fundo-1);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     position: sticky;
     top: 0;
     z-index: 9999;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 #logo {
     color: white;
-
     font-size: 2.25em;
     font-weight: bold;
 }
 
 #logo span {
     color: transparent;
-
     background: var(--gradiente-logo) text;
 }
 
@@ -98,14 +107,12 @@ header {
     list-style: none;
 
     display: flex;
-    gap: 10px;
 }
 
 #navbar a {
-    padding: 15px 10px;
+    padding: 15px;
 
     color: white;
-    text-decoration: none;
 
     display: block;
 
@@ -117,12 +124,12 @@ header {
 }
 
 #btn-mobile {
-    color: var(--texto-destaque);
-    font-size: 2em;
+    border: none;
 
     background: transparent;
 
-    border: 0;
+    color: white;
+    font-size: 2em;
 
     display: none;
 }
@@ -133,34 +140,18 @@ header {
 
 /* Área principal */
 
-h1 {
-    color: var(--texto-destaque);
-
-    font-size: 2.5rem;
-    line-height: 1;
-}
-
-section>h2 {
-    padding: 20px 0 40px;
-
-    color: var(--texto-destaque);
-
-    font-size: 2.125rem;
-    text-align: center;
-}
-
 main {
-    width: min(95%, 1200px);
+    width: min(97.5%, 1200px);
 
     margin: 0 auto;
     padding: 20px 0;
 
-    display: flex;
-    flex-direction: column;
+    align-self: center;
     flex: 1;
     gap: 30px;
 
-    align-self: center;
+    display: flex;
+    flex-direction: column;
 
     transition: filter 0.2s linear;
 }
@@ -170,24 +161,39 @@ section {
 
     border-radius: 12px;
 
-    background-color: var(--fundo-escuro);
+    background: var(--fundo-1);
+}
+
+section h1 {
+    color: var(--texto-destaque);
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+section>h2 {
+    padding: 20px 0 40px;
+
+    color: var(--texto-destaque);
+    text-align: center;
+    font-size: 2.125rem;
 }
 
 /* Seção hero */
 
 #hero {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
     align-items: center;
     gap: 20px;
+
+    display: grid;
+    grid-template: auto / repeat(2, 1fr);
 }
 
 #textos-hero {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
     gap: 30px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 #funcao-empresa {
@@ -195,10 +201,10 @@ section {
 
     border-radius: 8px;
 
+    background: white;
+
     color: black;
     font-size: 1.125rem;
-
-    background-color: white;
 }
 
 #descricao-hero {
@@ -212,11 +218,10 @@ section {
 
 .btn-hero-wrapper {
     padding: 2px;
+
     border-radius: 1000px;
 
-    background-image: linear-gradient(to bottom right,
-            hsl(6, 100%, 60%),
-            hsl(6, 100%, 40%));
+    background: var(--gradiente-botoes);
 }
 
 .btn-hero {
@@ -224,7 +229,7 @@ section {
 
     border-radius: 1000px;
 
-    background-color: var(--fundo-claro);
+    background: var(--fundo-2);
 
     color: white;
     font-size: 1.25rem;
@@ -233,10 +238,11 @@ section {
 }
 
 .btn-hero:hover {
-    background-color: transparent;
+    background: transparent;
 
-    box-shadow: 10px 0 30px rgba(255, 71, 51, 0.5),
-        -10px 0 30px hsla(6, 100%, 40%, 0.5);
+    box-shadow:
+        0 0 30px 5px hsl(from var(--cor-principal) h s l / 50%),
+        0 0 30px 5px hsl(from var(--cor-principal-1) h s l / 50%);
 }
 
 /* Mini-site */
@@ -250,12 +256,11 @@ section {
     background: var(--gradiente-mini-site);
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 30px 1fr 1fr;
-    grid-template-areas:
-        "m-header m-header m-header"
-        "m-card1 m-card2 m-card2"
-        "m-card3 m-card3 m-card3";
+    grid-template:
+        "mh mh mh" 30px
+        "mc1 mc2 mc2" 1fr
+        "mc3 mc3 mc3" 1fr
+        / 1fr 1fr 1fr;
     gap: 20px;
 }
 
@@ -268,10 +273,11 @@ section {
 /* Seção serviços */
 
 #servicos {
+    gap: 20px;
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto;
-    gap: 20px;
 }
 
 #servicos h2 {
@@ -281,23 +287,22 @@ section {
 .servico {
     padding: 50px 10px;
 
-    border-radius: 12px;
     border: 1.5px solid var(--cor-principal);
+    border-radius: 12px;
 
-    background-color: var(--fundo);
+    background: var(--fundo);
 
-    display: grid;
-    grid-template-rows: 2fr 1fr;
     justify-items: center;
     gap: 30px;
 
-    transition: transform 0.1s ease,
-        background-color 0.1s ease;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
 }
 
 .servico:hover {
-    transform: translateY(-5px);
-    background-color: var(--cor-principal);
+    border: none;
+
+    background: var(--gradiente-botoes);
 }
 
 .servico svg {
@@ -307,8 +312,6 @@ section {
     color: var(--cor-principal);
 
     align-self: end;
-
-    transition: color 0.1s ease;
 }
 
 .servico:hover svg {
@@ -316,8 +319,7 @@ section {
 }
 
 .servico h3 {
-    color: var(--texto);
-
+    color: var(--texto-destaque);
     text-align: center;
     font-size: clamp(1.125rem, 1vw + 0.5rem, 1.5rem);
     font-weight: normal;
@@ -330,15 +332,15 @@ section {
 /* Seção projetos */
 
 #projetos-container {
-    width: 90%;
+    width: 97.5%;
     margin: 0 auto;
-
 
     position: relative;
 }
 
 #carrossel {
     width: 100%;
+
     border-radius: 12px;
 
     overflow-x: hidden;
@@ -346,6 +348,7 @@ section {
 
 #faixa {
     display: flex;
+
     transition: transform 0.5s ease-in-out;
 }
 
@@ -396,51 +399,59 @@ section {
 /* Seção valores */
 
 #valores-container {
-    width: 100%;
+    width: 97.5%;
+    margin: 0 auto;
 
-    display: flex;
+    gap: 10px;
+
+    display: grid;
+    grid-template-rows: 200px;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .valor {
     height: 200px;
     margin-right: -10px;
+    padding-left: 2%;
 
-    background-image: var(--gradiente-botoes);
+    background: var(--gradiente-botoes);
 
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
 
-    display: flex;
-    justify-content: center;
     align-items: center;
     flex: 1;
+    justify-content: center;
+
+    display: flex;
 
     position: relative;
 
-    clip-path: polygon(90% 0,
+    clip-path: polygon(95% 0,
             100% 50%,
-            90% 100%,
+            95% 100%,
             0% 100%,
-            10% 50%,
+            5% 50%,
             0% 0%);
 }
 
 .valor::before {
     content: "";
-    position: absolute;
+
     inset: 3px;
 
-    background-color: var(--fundo-escuro);
+    background: var(--fundo-1);
 
     clip-path: inherit;
 
+    position: absolute;
     z-index: -1;
 
-    transition: background-color 0.1s ease;
+    transition: background 0.1s ease;
 }
 
 .valor:hover::before {
-    background-color: transparent;
+    background: transparent;
 }
 
 /* Seção equipe */
@@ -448,9 +459,9 @@ section {
 #carrossel-equipe {
     width: 100%;
 
-    overflow: hidden;
-
     display: flex;
+
+    overflow: hidden;
 }
 
 .carrossel-wrapper {
@@ -479,9 +490,10 @@ section {
 
     text-align: center;
 
+    flex-shrink: 0;
+
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
 
     transition: filter 0.2s ease;
 }
@@ -494,27 +506,25 @@ section {
     border-radius: 50%;
 
     aspect-ratio: 1 / 1;
-    object-position: middle;
     object-fit: cover;
+    object-position: middle;
 }
 
 .nome-membro {
     margin-top: 20px;
 
     color: var(--cor-principal);
-
     font-size: 1.75rem;
     font-weight: bold;
 }
 
 /* Seção contato */
 
-/* #contato  */
-
 #contato {
+    align-items: center;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
 }
 
 #info-contato {
@@ -522,10 +532,9 @@ section {
 
     border-radius: 12px 0 0 12px;
 
+    background: var(--cor-principal);
+
     color: var(--texto-destaque);
-
-    background-color: var(--cor-principal);
-
     font-size: 1.5rem;
 
     display: flex;
@@ -559,21 +568,20 @@ section {
     border: 1px solid var(--cor-principal);
     border-radius: 12px;
 
-    box-shadow: 0 0 25px hsla(6, 100%, 50%, 0.15);
-
     background: var(--fundo);
+    box-shadow: 0 0 25px hsl(from var(--cor-principal) h s l / 25%);
+
+    gap: 20px;
 
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
-    gap: 20px;
 }
 
 #contato label {
     margin-bottom: 10px;
 
     color: var(--texto-destaque);
-
     font-size: 1.5rem;
     font-weight: bold;
 
@@ -585,13 +593,12 @@ section {
     width: 100%;
     padding: 10px;
 
-    color: white;
-
-    border: 2px solid var(--fundo-super-claro);
+    border: 2px solid var(--fundo-3);
     border-radius: 12px;
 
-    background: var(--fundo-claro);
+    background: var(--fundo-2);
 
+    color: white;
     font-size: 1.5rem;
 }
 
@@ -602,18 +609,16 @@ section {
 #contato input:focus,
 #contato textarea:focus {
     outline: 0;
-
     border: 2px solid var(--cor-principal);
 }
 
 #contato button {
     padding: 15px 20px;
 
-    border-radius: 10px;
-    border: 0;
-
-    background: var(--fundo-claro);
     border: 1px solid var(--cor-principal);
+    border-radius: 10px;
+
+    background: var(--fundo-2);
 
     color: white;
     font-size: 1.25rem;
@@ -622,13 +627,14 @@ section {
 }
 
 #contato button:hover {
+    border: none;
+
     background: var(--gradiente-botoes);
 }
 
 /* Media Queries */
 
 @media (max-width: 768px) {
-
     /* Menu hambúrguer */
 
     #btn-mobile {
@@ -638,10 +644,9 @@ section {
     #navbar {
         width: 75%;
         height: calc(100vh - 100%);
-
         padding-left: 20px;
 
-        background-color: var(--fundo);
+        background: var(--fundo);
 
         position: absolute;
         top: 100%;
@@ -666,13 +671,16 @@ section {
 
     #hero {
         padding: 50px 20px;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
+
         gap: 50px;
+
+        display: grid;
+        grid-template: auto / 1fr;
     }
 
     #textos-hero {
         text-align: center;
+
         align-items: center;
     }
 
@@ -703,16 +711,29 @@ section {
         font-size: 1.5rem;
     }
 
+    /* Seção projetos */
+
+    #projetos-container {
+        width: 100%;
+    }
+
+    /* Seção valores */
+
+    #valores-container {
+        grid-template-rows: repeat(2, 200px);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     /* Seção contato */
 
     #contato {
+        justify-items: center;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, max-content);
-        justify-items: center;
     }
 
     #info-contato {
-        width: 80%;
+        width: 95%;
         height: 100%;
         padding: 30px 0;
 
@@ -729,6 +750,10 @@ section {
     }
 
     #contato button {
+        border: none;
+
+        background: var(--gradiente-botoes);
+
         justify-self: stretch;
     }
 }
@@ -740,7 +765,31 @@ section {
         grid-template-columns: 1fr;
     }
 
+    /* Seção valores */
+
+    #valores-container {
+        justify-items: center;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: 1fr;
+    }
+
+    .valor {
+        width: 350px;
+        height: 350px;
+        padding: 20px;
+
+        font-size: 2rem;
+
+        clip-path: polygon(100% 0,
+                100% 95%,
+                50% 100%,
+                0% 95%,
+                0% 0%,
+                50% 5%);
+    }
+
     /* Seção equipe */
+
     .carrossel-wrapper {
         animation-duration: 20s;
     }

@@ -4,7 +4,7 @@
 
 :root {
     /* Cores bases */
-    --cor-principal: hsl(0, 100%, 60%);
+    --cor-principal: hsl(3, 100%, 60%);
     --fundo: hsl(270, 70%, 15%);
 
     /* Variações da cor principal */
@@ -235,14 +235,16 @@ section>h2 {
     font-size: 1.25rem;
 
     display: block;
+
+    transition: background 0.1s ease, box-shadow 0.1s ease;
 }
 
 .btn-hero:hover {
     background: transparent;
 
     box-shadow:
-        0 0 30px 5px hsl(from var(--cor-principal) h s l / 50%),
-        0 0 30px 5px hsl(from var(--cor-principal-1) h s l / 50%);
+        0 0 25px hsl(from var(--cor-principal) h s l / 50%),
+        0 0 25px hsl(from var(--cor-principal-1) h s l / 50%);
 }
 
 /* Mini-site */
@@ -776,6 +778,7 @@ section>h2 {
     .valor {
         width: 350px;
         height: 350px;
+        margin: 0;
         padding: 20px;
 
         font-size: 2rem;

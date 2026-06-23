@@ -629,8 +629,6 @@ section>h2 {
 }
 
 #contato button:hover {
-    border: none;
-
     background: var(--gradiente-botoes);
 }
 

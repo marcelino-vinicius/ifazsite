@@ -4,11 +4,11 @@
 
 :root {
     /* Cores bases */
-    --cor-principal: hsl(3, 100%, 60%);
+    --cor-principal: hsl(3, 95%, 50%);
     --fundo: hsl(270, 70%, 15%);
 
     /* Variações da cor principal */
-    --cor-principal-1: hsl(from var(--cor-principal) h s 40%);
+    --cor-principal-1: hsl(from var(--cor-principal) h s 35%);
     --cor-principal-2: hsl(from var(--cor-principal) h s 20%);
 
     /* Variações do fundo */
@@ -500,7 +500,7 @@ section>h2 {
 
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    object-position: middle;
+    object-position: top center;
 }
 
 .nome-membro {

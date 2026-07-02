@@ -21,10 +21,6 @@
     --texto: hsl(0, 0%, 70%);
 
     /* Gradientes */
-    --gradiente-logo: linear-gradient(to bottom right,
-            var(--cor-principal) 30%,
-            var(--cor-principal-2));
-
     --gradiente-botoes: linear-gradient(to bottom right,
             var(--cor-principal),
             var(--cor-principal-1));
@@ -64,6 +60,10 @@ a {
     filter: brightness(0.5);
 }
 
+
+
+
+
 /* Cabeçalho */
 
 header {
@@ -85,6 +85,7 @@ header {
 #logo img {
     max-height: 55px;
 }
+
 
 /* Barra de navegação */
 
@@ -122,6 +123,10 @@ header {
 #btn-mobile:hover {
     cursor: pointer;
 }
+
+
+
+
 
 /* Área principal */
 
@@ -164,6 +169,7 @@ h2 {
     text-align: center;
     font-size: 2.125rem;
 }
+
 
 /* Seção hero */
 
@@ -234,6 +240,7 @@ h2 {
         0 0 25px hsl(from var(--cor-principal-1) h s l / 50%);
 }
 
+
 /* Vídeo da equipe */
 
 .video-equipe {
@@ -256,6 +263,7 @@ h2 {
     aspect-ratio: 16 / 9;
 
 }
+
 
 /* Seção serviços */
 
@@ -315,6 +323,7 @@ h2 {
 .servico:hover h3 {
     color: var(--fundo);
 }
+
 
 /* Seção projetos */
 
@@ -383,6 +392,7 @@ h2 {
     background: var(--cor-principal);
 }
 
+
 /* Seção valores */
 
 #valores-container {
@@ -438,6 +448,7 @@ h2 {
 .valor:hover::before {
     background: transparent;
 }
+
 
 /* Seção equipe */
 
@@ -502,6 +513,7 @@ h2 {
     font-size: 1.75rem;
     font-weight: bold;
 }
+
 
 /* Seção contato */
 
@@ -613,6 +625,10 @@ h2 {
     background: var(--gradiente-botoes);
 }
 
+
+
+
+
 /* Media Queries */
 
 @media (max-width: 768px) {
@@ -648,6 +664,7 @@ h2 {
         flex-direction: column;
     }
 
+
     /* Seção hero */
 
     #hero {
@@ -665,6 +682,7 @@ h2 {
         align-items: center;
     }
 
+
     /* Vídeo da equipe */
 
     .video-equipe h2 {
@@ -680,6 +698,7 @@ h2 {
         margin-top: 30px;
     }
 
+
     /* Seção servicos */
 
     #servicos {
@@ -694,11 +713,13 @@ h2 {
         font-size: 1.5rem;
     }
 
+
     /* Seção projetos */
 
     #projetos-container {
         width: 100%;
     }
+
 
     /* Seção valores */
 
@@ -708,6 +729,7 @@ h2 {
         grid-template-rows: repeat(2, 200px);
         grid-template-columns: repeat(2, 1fr);
     }
+
 
     /* Seção contato */
 
@@ -726,7 +748,6 @@ h2 {
 
         text-align: center;
 
-        /* align-items: center; */
         order: 2;
     }
 
@@ -749,6 +770,7 @@ h2 {
     #servicos {
         grid-template-columns: 1fr;
     }
+
 
     /* Seção valores */
 
@@ -775,12 +797,17 @@ h2 {
                 50% 5%);
     }
 
+
     /* Seção equipe */
 
     .carrossel-wrapper {
         animation-duration: 20s;
     }
 }
+
+
+
+
 
 /* Animações */
 

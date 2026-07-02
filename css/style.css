@@ -28,14 +28,6 @@
     --gradiente-botoes: linear-gradient(to bottom right,
             var(--cor-principal),
             var(--cor-principal-1));
-
-    --gradiente-mini-site: linear-gradient(to bottom right,
-            var(--cor-principal),
-            var(--cor-principal-2));
-
-    --gradiente-mini-cards: linear-gradient(to bottom,
-            hsl(0, 0%, 90%),
-            hsl(0, 0%, 70%));
 }
 
 html {
@@ -165,7 +157,9 @@ section h1 {
 
 section>h2 {
     padding: 20px 0 40px;
+}
 
+h2 {
     color: var(--texto-destaque);
     text-align: center;
     font-size: 2.125rem;
@@ -175,7 +169,7 @@ section>h2 {
 
 #hero {
     align-items: center;
-    gap: 20px;
+    gap: 50px;
 
     display: grid;
     grid-template: auto / repeat(2, 1fr);
@@ -240,29 +234,27 @@ section>h2 {
         0 0 25px hsl(from var(--cor-principal-1) h s l / 50%);
 }
 
-/* Mini-site */
+/* Vídeo da equipe */
 
-.mini-site {
-    height: 400px;
-    padding: 20px;
-
-    border-radius: 12px;
-
-    background: var(--gradiente-mini-site);
-
-    display: grid;
-    grid-template:
-        "mh mh mh" 30px
-        "mc1 mc2 mc2" 1fr
-        "mc3 mc3 mc3" 1fr
-        / 1fr 1fr 1fr;
-    gap: 20px;
+.video-equipe {
+    width: min(100%, 100%);
+    margin: 0 auto;
 }
 
-.mini-card {
+.video-equipe h2 {
+    padding: 10px 0 20px 0;
+
+    display: none;
+}
+
+.video-equipe iframe {
+    width: 100%;
+
+    border: 0;
     border-radius: 12px;
 
-    background: var(--gradiente-mini-cards);
+    aspect-ratio: 16 / 9;
+
 }
 
 /* Seção serviços */
@@ -537,8 +529,6 @@ section>h2 {
 
 #info-contato h2 {
     padding-bottom: 20px;
-
-    text-align: center;
 }
 
 #info-contato ul {
@@ -675,6 +665,12 @@ section>h2 {
         align-items: center;
     }
 
+    /* Vídeo da equipe */
+
+    .video-equipe h2 {
+        display: block;
+    }
+
     #descricao-hero {
         width: 80%;
         padding: 0;
@@ -682,10 +678,6 @@ section>h2 {
 
     #botoes-hero {
         margin-top: 30px;
-    }
-
-    .mini-site {
-        display: none;
     }
 
     /* Seção servicos */
@@ -768,7 +760,7 @@ section>h2 {
     }
 
     .valor {
-        width: 350px;
+        width: min(100%, 350px);
         height: 350px;
         margin: 0;
         padding: 20px;

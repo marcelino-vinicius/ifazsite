@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFazSite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>IFazSite</title>
 </head>
 
 <body>
     <header>
         <a href="#" id="logo"><img src="./images/logo.png" alt="Logo da IFazSite"></a>
 
-        <button id="btn-mobile">
-            <i class="fa-solid fa-bars"></i>
+        <button id="btn-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbar">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
 
         <nav id="navbar">
@@ -62,7 +62,7 @@
         <section id="servicos">
             <h2>Serviços oferecidos</h2>
 
-            <div class="servico">
+            <div class="servico" tabindex="0">
                 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 64 64">
                     <path
                         d="M58 41.078V18.5c0-2.481-2.019-4.5-4.5-4.5S49 16.018 49 18.5V29c0 1.654-1.346 3-3 3h-1.836C41.979 27 37.99 22.71 33 20.291V8.719l4-1.333v4.797a3 3 0 0 0-2 2.816c0 1.654 1.346 3 3 3s3-1.346 3-3a3 3 0 0 0-2-2.816V6a1 1 0 0 0-.684-.948l-15-5a1 1 0 0 0-.633 0l-15 5a.999.999 0 0 0 .001 1.896L13 8.719v11.57C5.313 24.017 0 31.898 0 41c0 12.683 10.317 23 23 23s23-10.318 23-23c0-2.44-.385-5-1.093-7H46c2.757 0 5-2.243 5-5V18.5c0-1.379 1.121-2.5 2.5-2.5s2.5 1.12 2.5 2.5v22.58c-3.386.488-6 3.401-6 6.92v6c0 3.859 3.141 7 7 7s7-3.141 7-7v-6c0-3.521-2.614-6.433-6-6.922M38 14a1 1 0 1 1 0 2 1 1 0 0 1 0-2m2.391 15.242c2.1 3.096 3.369 6.755 3.558 10.755h-9.961v.001c-.056-3-.353-5.602-.852-8.091 2.757-.632 5.208-1.54 7.255-2.665m-1.2-1.602c-1.822.959-4.037 1.741-6.501 2.306-1.013-3.944-2.56-7.161-4.452-9.26a21.05 21.05 0 0 1 10.953 6.954m-8.04 4.662c.479 2.377.768 4.697.827 7.697H24v-7.026a46.6 46.6 0 0 0 7.151-.671M24 30.986V20.145c2.815.765 5.276 4.709 6.7 10.2a44.6 44.6 0 0 1-6.7.641M11.162 6 23 2.052 34.838 6 23 9.945zm6.599 14.687c-1.892 2.099-3.439 5.315-4.452 9.26-2.464-.566-4.679-1.347-6.501-2.306a21.05 21.05 0 0 1 10.953-6.954M5.608 29.244c2.047 1.124 4.498 2.031 7.255 2.664-.499 2.489-.796 5.091-.852 8.091h-9.96c.188-4 1.457-7.659 3.557-10.755m-.031 23.464c-2.082-3.087-3.339-6.71-3.527-10.71h9.961c.056 3 .347 5.559.839 8.031-2.765.637-5.223 1.549-7.273 2.679m1.197 1.604c1.825-.966 4.048-1.752 6.521-2.32 1.012 3.971 2.565 7.21 4.466 9.319a21.04 21.04 0 0 1-10.987-6.999M22 61.854c-2.825-.768-5.294-4.738-6.716-10.26A45 45 0 0 1 22 50.95zm0-12.891a47 47 0 0 0-7.164.673c-.472-2.361-.756-4.638-.814-7.638H22zm0-8.964h-7.978c.058-3 .347-5.32.827-7.697 2.256.398 4.663.622 7.151.671zm0-9.013a45 45 0 0 1-6.7-.64c1.425-5.491 3.886-9.435 6.7-10.2zm-7-11.549V9.385l7.684 2.561a.98.98 0 0 0 .632.002L31 9.385v10.05C28.507 18.508 25.812 18 23 18s-5.507.508-8 1.437m8.999 22.562h7.978c-.058 3-.342 5.277-.814 7.638a46.7 46.7 0 0 0-7.164-.673zM24 61.854V50.95c2.321.049 4.587.271 6.716.643-1.422 5.523-3.891 9.493-6.716 10.261m4.238-.544c1.901-2.109 3.454-5.348 4.466-9.319 2.473.569 4.696 1.355 6.521 2.32a21 21 0 0 1-10.987 6.999m12.185-8.602c-2.049-1.13-4.508-2.043-7.273-2.679.492-2.473.783-5.031.839-8.031h9.961c-.188 4.001-1.446 7.624-3.527 10.71M62 54c0 2.757-2.243 5-5 5s-5-2.243-5-5v-6c0-2.757 2.243-5 5-5s5 2.243 5 5z">
@@ -73,7 +73,7 @@
                 <h3>criação de sites institucionais</h3>
             </div>
 
-            <div class="servico">
+            <div class="servico" tabindex="0">
                 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="1.05 6.92 63.88 52.14">
                     <path
                         d="M63.41 8.53a5.3 5.3 0 0 0-7.89.41l-12.89 15.6c-2.49-.54-4.69.57-6.23 3.22-.56.96-.94 2.08-1.13 3.33-.31 1.99-.93 3.71-1.91 5.25-.16.26-.18.58-.04.85s.42.44.72.45c.43.02.86.02 1.27.02 4.98 0 8.46-1.18 10.34-3.5 1.46-1.81 1.54-3.8 1.44-4.88l15.82-12.86a5.34 5.34 0 0 0 2.01-3.83c.11-1.51-.45-2.99-1.51-4.06M46.46 22.58l2.78 2.78-2.86 2.32-2.26-2.27zm-2.14 10.53c-1.5 1.84-4.53 2.82-8.8 2.85.7-1.4 1.17-2.92 1.43-4.62.16-1.04.47-1.96.92-2.73.98-1.68 2.18-2.52 3.58-2.52.34 0 .7.05 1.07.15l2.86 2.88c.1.61.24 2.41-1.06 3.99m17.55-18.02-.01.01-11.3 9.19-3.02-3.02 9.3-11.25c.64-.8 1.59-1.29 2.62-1.35s2.02.33 2.74 1.06 1.1 1.73 1.04 2.75-.56 1.97-1.37 2.61">
@@ -90,7 +90,7 @@
                 <h3>sistemas web personalizados</h3>
             </div>
 
-            <div class="servico">
+            <div class="servico" tabindex="0">
                 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" stroke-linejoin="round"
                     stroke-miterlimit="2" clip-rule="evenodd" viewBox="0 0 510 510">
                     <path
@@ -100,7 +100,7 @@
                 <h3>reformulação de sites antigos</h3>
             </div>
 
-            <div class="servico">
+            <div class="servico" tabindex="0">
                 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
                     viewBox="0 0 64 64">
                     <path
@@ -122,26 +122,36 @@
             <h2>Conheça nossos clientes!</h2>
 
             <div id="projetos-container">
-                <button id="prev-btn">
-                    <i class="fa-solid fa-angle-left"></i>
+                <button id="prev-projeto" class="prev-btn" type="button" aria-label="Projeto anterior">
+                    <i class="fa-solid fa-angle-left" aria-hidden="true"></i>
                 </button>
 
-                <div id="carrossel">
-                    <div id="faixa">
+                <div id="carrossel-projetos">
+                    <div class="faixa-projetos">
                         <div class="projeto">
-                            <img src="images/projetos/terezinha-lava-e-passa.png" alt="Site 1">
+                            <img src="./images/projetos/terezinha-lava-e-passa.png"
+                                alt="Lavanderia Terezinha Lava e Passa">
                         </div>
                         <div class="projeto">
-                            <img src="images/projetos/sabores-do-mundo.png" alt="Site 2">
+                            <img src="./images/projetos/sabores-do-mundo.png" alt="Restaurante Sabores do Mundo">
                         </div>
                         <div class="projeto">
-                            <img src="./images/projetos/flow-games.png" alt="Site 3">
+                            <img src="./images/projetos/flow-games.png" alt="Fórum Flow Games">
+                        </div>
+                        <div class="projeto">
+                            <img src="./images/projetos/terezinha-lava-e-passa.png" alt="">
+                        </div>
+                        <div class="projeto">
+                            <img src="./images/projetos/sabores-do-mundo.png" alt="">
+                        </div>
+                        <div class="projeto">
+                            <img src="./images/projetos/flow-games.png" alt="">
                         </div>
                     </div>
                 </div>
 
-                <button id="next-btn">
-                    <i class="fa-solid fa-angle-right"></i>
+                <button id="next-projeto" class="next-btn" type="button" aria-label="Próximo projeto">
+                    <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
                 </button>
             </div>
         </section>
@@ -150,105 +160,113 @@
             <h2>Nossos valores</h2>
 
             <div id="valores-container">
-                <p class="valor">COMPROMISSO</p>
-                <p class="valor">TRANSPARÊNCIA</p>
-                <p class="valor">QUALIDADE</p>
-                <p class="valor">INOVAÇÃO</p>
+                <p class="valor" tabindex="0">COMPROMISSO</p>
+                <p class="valor" tabindex="0">TRANSPARÊNCIA</p>
+                <p class="valor" tabindex="0">QUALIDADE</p>
+                <p class="valor" tabindex="0">INOVAÇÃO</p>
             </div>
         </section>
 
         <section id="equipe">
             <h2>Conheça a equipe!</h2>
 
-            <div id="carrossel-equipe">
-                <div class="carrossel-wrapper">
-                    <div class="membro">
-                        <img src="images/equipe/sofia.jpg" alt="Scrum Master" class="foto-membro">
-                        <span class="nome-membro">Sofia</span>
-                        <span class="funcao-membro">Organiza as ideias</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/wallace.jpg" alt="P.O. da empresa" class="foto-membro">
-                        <span class="nome-membro">Wallace</span>
-                        <span class="funcao-membro">
-                            Planeja o desenvolvimento
-                        </span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/vinicius.jpg" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">Vinicius</span>
-                        <span class="funcao-membro">Cria a identidade do site</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/gustavo.jpg" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">Gustavo</span>
-                        <span class="funcao-membro">Torna suas ideias reais</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/joao-andrade.jpg" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">João Guilherme</span>
-                        <span class="funcao-membro">Converte criatividade em site</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/maria-helena.jpg" alt="Deva" class="foto-membro">
-                        <span class="nome-membro">Maria Helena</span>
-                        <span class="funcao-membro">Cria conexões digitais</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/ryan.jpg" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">Ryan</span>
-                        <span class="funcao-membro">Resolve seus problemas</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/kaio.png" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">Kaio</span>
-                        <span class="funcao-membro">Deixa seu site funcional</span>
+            <div id="equipe-container">
+                <button id="prev-membro" class="prev-btn" type="button" aria-label="Membro anterior">
+                    <i class="fa-solid fa-angle-left" aria-hidden="true"></i>
+                </button>
+
+                <div id="carrossel-equipe">
+                    <div class="faixa-equipe">
+                        <div class="membro">
+                            <img src="images/equipe/sofia.jpg" alt="Scrum Master" class="foto-membro">
+                            <span class="nome-membro">Sofia</span>
+                            <span class="funcao-membro">Organiza as ideias</span>
+                        </div>
+                        <div class="membro">
+                            <img src="images/equipe/wallace.jpg" alt="P.O. da empresa" class="foto-membro">
+                            <span class="nome-membro">Wallace</span>
+                            <span class="funcao-membro">
+                                Planeja o desenvolvimento
+                            </span>
+                        </div>
+                        <div class="membro">
+                            <img src="images/equipe/vinicius.jpg" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">Vinicius</span>
+                            <span class="funcao-membro">Cria a identidade do site</span>
+                        </div>
+                        <div class="membro">
+                            <img src="images/equipe/gustavo.jpg" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">Gustavo</span>
+                            <span class="funcao-membro">Torna suas ideias reais</span>
+                        </div>
+                        <div class="membro">
+                            <img src="images/equipe/joao-andrade.jpg" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">João Guilherme</span>
+                            <span class="funcao-membro">Converte criatividade em site</span>
+                        </div>
+                        <div class="membro">
+                            <img src="images/equipe/maria-helena.jpg" alt="Deva" class="foto-membro">
+                            <span class="nome-membro">Maria Helena</span>
+                            <span class="funcao-membro">Cria conexões digitais</span>
+                        </div>
+                        <div class="membro">
+                            <img src="images/equipe/ryan.jpg" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">Ryan</span>
+                            <span class="funcao-membro">Resolve seus problemas</span>
+                        </div>
+                        <div class="membro">
+                            <img src="images/equipe/kaio.png" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">Kaio</span>
+                            <span class="funcao-membro">Deixa seu site funcional</span>
+                        </div>
+                        <div class="membro" aria-hidden="true">
+                            <img src="images/equipe/sofia.jpg" alt="Scrum Master" class="foto-membro">
+                            <span class="nome-membro">Sofia</span>
+                            <span class="funcao-membro">Organiza as ideias</span>
+                        </div>
+                        <div class="membro" aria-hidden="true">
+                            <img src="images/equipe/wallace.jpg" alt="P.O. da empresa" class="foto-membro">
+                            <span class="nome-membro">Wallace</span>
+                            <span class="funcao-membro">
+                                Planeja o desenvolvimento
+                            </span>
+                        </div>
+                        <div class="membro" aria-hidden="true">
+                            <img src="images/equipe/vinicius.jpg" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">Vinicius</span>
+                            <span class="funcao-membro">Cria a identidade do site</span>
+                        </div>
+                        <div class="membro" aria-hidden="true">
+                            <img src="images/equipe/gustavo.jpg" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">Gustavo</span>
+                            <span class="funcao-membro">Torna suas ideias reais</span>
+                        </div>
+                        <div class="membro" aria-hidden="true">
+                            <img src="images/equipe/joao-andrade.jpg" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">João Guilherme</span>
+                            <span class="funcao-membro">Converte criatividade em site</span>
+                        </div>
+                        <div class="membro" aria-hidden="true">
+                            <img src="images/equipe/maria-helena.jpg" alt="Deva" class="foto-membro">
+                            <span class="nome-membro">Maria Helena</span>
+                            <span class="funcao-membro">Cria conexões digitais</span>
+                        </div>
+                        <div class="membro" aria-hidden="true">
+                            <img src="images/equipe/ryan.jpg" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">Ryan</span>
+                            <span class="funcao-membro">Resolve seus problemas</span>
+                        </div>
+                        <div class="membro" aria-hidden="true">
+                            <img src="images/equipe/kaio.png" alt="Dev" class="foto-membro">
+                            <span class="nome-membro">Kaio</span>
+                            <span class="funcao-membro">Deixa seu site funcional</span>
+                        </div>
                     </div>
                 </div>
-                <div class="carrossel-wrapper">
-                    <div class="membro">
-                        <img src="images/equipe/sofia.jpg" alt="Scrum Master" class="foto-membro">
-                        <span class="nome-membro">Sofia</span>
-                        <span class="funcao-membro">Organiza as ideias</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/wallace.jpg" alt="P.O. da empresa" class="foto-membro">
-                        <span class="nome-membro">Wallace</span>
-                        <span class="funcao-membro">
-                            Planeja o desenvolvimento
-                        </span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/vinicius.jpg" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">Vinicius</span>
-                        <span class="funcao-membro">Cria a identidade do site</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/gustavo.jpg" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">Gustavo</span>
-                        <span class="funcao-membro">Torna suas ideias reais</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/joao-andrade.jpg" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">João Guilherme</span>
-                        <span class="funcao-membro">Converte criatividade em site</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/maria-helena.jpg" alt="Deva" class="foto-membro">
-                        <span class="nome-membro">Maria Helena</span>
-                        <span class="funcao-membro">Cria conexões digitais</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/ryan.jpg" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">Ryan</span>
-                        <span class="funcao-membro">Resolve seus problemas</span>
-                    </div>
-                    <div class="membro">
-                        <img src="images/equipe/kaio.png" alt="Dev" class="foto-membro">
-                        <span class="nome-membro">Kaio</span>
-                        <span class="funcao-membro">Deixa seu site funcional</span>
-                    </div>
-                </div>
+
+                <button id="next-membro" class="next-btn" type="button" aria-label="Próximo membro">
+                    <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                </button>
             </div>
         </section>
 
@@ -256,14 +274,27 @@
             <address id="info-contato">
                 <h2>Contatos</h2>
                 <ul>
-                    <li><i class="fa-solid fa-envelope"></i> ifazsite@gmail.com <a href="mailto:ifazsite@gmail.com"
-                            target="_blank" rel="external"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    <li>
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i> ifazsite@gmail.com <a
+                            href="mailto:ifazsite@gmail.com" target="_blank" rel="external"
+                            aria-label="Enviar email para a IFazSite"><i class="fa-solid fa-up-right-from-square"
+                                aria-hidden="true"></i></a>
                     </li>
-                    <li><i class="fa-brands fa-whatsapp"></i> (16) 99389-4435 <a href="https://wa.me/5516993894435"
-                            target="_blank" rel="external"><i class="fa-solid fa-up-right-from-square"></i></a>
+
+
+                    <li>
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> (16) 99389-4435 <a
+                            href="https://wa.me/5516993894435" target="_blank" rel="external"
+                            aria-label="Conversar no Whatsapp com a IFazSite"><i
+                                class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a>
                     </li>
-                    <li><i class="fa-brands fa-instagram"></i> @ifazsite <a href="https://www.instagram.com/ifazsite/"
-                            target="_blank" rel="external"><i class="fa-solid fa-up-right-from-square"></i></a></li>
+
+                    <li>
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i> @ifazsite <a
+                            href="https://www.instagram.com/ifazsite/" target="_blank" rel="external"
+                            aria-label="Acessar o Instagram da IFazSite"><i class="fa-solid fa-up-right-from-square"
+                                aria-hidden="true"></i></a>
+                    </li>
                 </ul>
             </address>
 
@@ -282,7 +313,7 @@
                     <label for="mensagem">Mensagem:</label>
                     <textarea name="msg" id="mensagem" rows="5"></textarea>
                 </div>
-                <button type="button">Enviar</button>
+                <button type="submit">Enviar</button>
             </form>
         </section>
 

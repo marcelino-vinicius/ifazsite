@@ -3,27 +3,26 @@
 /* Configurações iniciais */
 
 :root {
-    /* Cores bases */
-    --cor-principal: hsl(3, 95%, 50%);
-    --fundo: hsl(270, 70%, 15%);
 
-    /* Variações da cor principal */
-    --cor-principal-1: hsl(from var(--cor-principal) h s 35%);
-    --cor-principal-2: hsl(from var(--cor-principal) h s 20%);
+    /* Cores principais */
+    --main-color: hsl(3, 95%, 50%);
+    --dark-color: hsl(3, 95%, 35%);
+    --darker-color: hsl(3, 95%, 20%);
 
-    /* Variações do fundo */
-    --fundo-1: hsl(from var(--fundo) h s 10%);
-    --fundo-2: hsl(from var(--fundo) h s 20%);
-    --fundo-3: hsl(from var(--fundo) h s 25%);
+    /* Fundos */
+    --dark-bg: hsl(270, 70%, 10%);
+    --bg: hsl(270, 70%, 15%);
+    --light-bg: hsl(270, 70%, 20%);
+    --lighter-bg: hsl(270, 70%, 25%);
 
     /* Texto */
-    --texto-destaque: hsl(0, 0%, 95%);
-    --texto: hsl(0, 0%, 70%);
+    --highlight-text: hsl(0, 0%, 95%);
+    --text: hsl(0, 0%, 70%);
 
     /* Gradientes */
-    --gradiente-botoes: linear-gradient(to bottom right,
-            var(--cor-principal),
-            var(--cor-principal-1));
+    --btn-gradient: linear-gradient(to bottom right,
+            var(--main-color),
+            var(--dark-color));
 }
 
 html {
@@ -41,15 +40,11 @@ html {
 body {
     min-height: 100vh;
 
-    background: var(--fundo-1) url("../images/background.png") fixed;
+    background: var(--dark-bg) url("../images/background.png") fixed;
     backdrop-filter: blur(10px);
 
-    color: var(--texto);
+    color: var(--text);
     font-family: "Open Sans", sans-serif;
-}
-
-body::-webkit-scrollbar {
-    display: none;
 }
 
 a {
@@ -58,6 +53,11 @@ a {
 
 .desfoque {
     filter: brightness(0.5);
+}
+
+:focus-visible {
+    outline: 2px solid var(--main-color);
+    outline-offset: 2px;
 }
 
 
@@ -69,9 +69,9 @@ a {
 header {
     padding: 15px 15px 15px 20px;
 
-    border-bottom: 2px solid var(--fundo-2);
+    border-bottom: 2px solid var(--light-bg);
 
-    background: var(--fundo-1);
+    background: var(--dark-bg);
 
     display: flex;
     align-items: center;
@@ -102,14 +102,20 @@ header {
 
     display: block;
 
-    transition: color 0.1s ease;
+    transition:
+        color 0.1s ease,
+        background-color 0.1s ease;
 }
 
 #navbar a:hover {
-    color: var(--cor-principal);
+    color: var(--main-color);
 }
 
-#btn-mobile {
+#navbar a:focus-visible {
+    background-color: var(--main-color);
+}
+
+#btn-menu {
     border: none;
 
     background: transparent;
@@ -120,7 +126,7 @@ header {
     display: none;
 }
 
-#btn-mobile:hover {
+#btn-menu:hover {
     cursor: pointer;
 }
 
@@ -151,11 +157,11 @@ section {
 
     border-radius: 12px;
 
-    background: var(--fundo-1);
+    background: var(--dark-bg);
 }
 
 section h1 {
-    color: var(--texto-destaque);
+    color: var(--highlight-text);
     font-size: 2.5rem;
     line-height: 1;
 }
@@ -165,7 +171,7 @@ section>h2 {
 }
 
 h2 {
-    color: var(--texto-destaque);
+    color: var(--highlight-text);
     text-align: center;
     font-size: 2.125rem;
 }
@@ -214,7 +220,7 @@ h2 {
 
     border-radius: 1000px;
 
-    background: var(--gradiente-botoes);
+    background: var(--btn-gradient);
 }
 
 .btn-hero {
@@ -222,7 +228,7 @@ h2 {
 
     border-radius: 1000px;
 
-    background: var(--fundo-2);
+    background: var(--light-bg);
 
     color: white;
     font-size: 1.25rem;
@@ -232,12 +238,13 @@ h2 {
     transition: background 0.1s ease, box-shadow 0.1s ease;
 }
 
-.btn-hero:hover {
+.btn-hero:hover,
+.btn-hero:focus-visible {
     background: transparent;
 
     box-shadow:
-        0 0 25px hsl(from var(--cor-principal) h s l / 50%),
-        0 0 25px hsl(from var(--cor-principal-1) h s l / 50%);
+        0 0 25px hsl(from var(--main-color) h s l / 50%),
+        0 0 25px hsl(from var(--dark-color) h s l / 50%);
 }
 
 
@@ -261,7 +268,6 @@ h2 {
     border-radius: 12px;
 
     aspect-ratio: 16 / 9;
-
 }
 
 
@@ -282,46 +288,51 @@ h2 {
 .servico {
     padding: 50px 10px;
 
-    border: 1.5px solid var(--cor-principal);
+    border: 1.5px solid var(--main-color);
     border-radius: 12px;
 
-    background: var(--fundo);
+    background: var(--bg);
 
     justify-items: center;
     gap: 30px;
 
     display: grid;
     grid-template-rows: 2fr 1fr;
+
+    scroll-margin-top: calc(115px + 2.125rem);
 }
 
-.servico:hover {
+.servico:hover,
+.servico:focus-visible {
     border: none;
 
-    background: var(--gradiente-botoes);
+    background: var(--btn-gradient);
 }
 
 .servico svg {
     width: 100px;
     height: auto;
 
-    color: var(--cor-principal);
+    color: var(--main-color);
 
     align-self: end;
 }
 
-.servico:hover svg {
-    color: var(--fundo);
+.servico:hover svg,
+.servico:focus-visible svg {
+    color: var(--bg);
 }
 
 .servico h3 {
-    color: var(--texto-destaque);
+    color: var(--highlight-text);
     text-align: center;
     font-size: clamp(1.125rem, 1vw + 0.5rem, 1.5rem);
     font-weight: normal;
 }
 
-.servico:hover h3 {
-    color: var(--fundo);
+.servico:hover h3,
+.servico:focus-visible h3 {
+    color: var(--bg);
 }
 
 
@@ -334,7 +345,7 @@ h2 {
     position: relative;
 }
 
-#carrossel {
+#carrossel-projetos {
     width: 100%;
 
     border-radius: 12px;
@@ -342,20 +353,20 @@ h2 {
     overflow-x: hidden;
 }
 
-#faixa {
+.faixa-projetos {
     display: flex;
 
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.2s ease;
 }
 
-#prev-btn {
+.prev-btn {
     left: 0;
     top: 50%;
 
     transform: translate(-50%, -50%);
 }
 
-#next-btn {
+.next-btn {
     right: 0;
     top: 50%;
 
@@ -374,22 +385,26 @@ h2 {
     display: block;
 }
 
-#projetos button {
+.prev-btn,
+.next-btn {
     width: 40px;
     height: 40px;
 
-    border: 1px solid var(--cor-principal);
+    border: 1px solid var(--main-color);
     border-radius: 50%;
 
     color: white;
-    background: var(--fundo);
+    background: var(--bg);
 
     position: absolute;
     z-index: 2;
 }
 
-#projetos button:hover {
-    background: var(--cor-principal);
+.prev-btn:hover,
+.prev-btn:focus-visible,
+.next-btn:hover,
+.next-btn:focus-visible {
+    background: var(--main-color);
 }
 
 
@@ -409,7 +424,7 @@ h2 {
     margin-right: -10px;
     padding-left: 2%;
 
-    background: var(--gradiente-botoes);
+    background: var(--btn-gradient);
 
     color: white;
     font-size: 1.5rem;
@@ -435,7 +450,7 @@ h2 {
 
     inset: 3px;
 
-    background: var(--fundo-1);
+    background: var(--dark-bg);
 
     clip-path: inherit;
 
@@ -445,32 +460,31 @@ h2 {
     transition: background 0.1s ease;
 }
 
-.valor:hover::before {
+.valor:hover::before,
+.valor:focus-visible::before {
     background: transparent;
 }
 
 
 /* Seção equipe */
 
+#equipe-container {
+    position: relative;
+}
+
 #carrossel-equipe {
     width: 100%;
 
     display: flex;
 
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
-.carrossel-wrapper {
-    padding-right: 30px;
-
+.faixa-equipe {
     display: flex;
     gap: 30px;
 
-    animation: girar 10s linear infinite;
-}
-
-#carrossel-equipe:hover .carrossel-wrapper {
-    animation-play-state: paused;
+    transition: transform 0.2s ease;
 }
 
 #carrossel-equipe:hover .membro {
@@ -498,7 +512,7 @@ h2 {
     width: 100%;
     height: auto;
 
-    border: 2px solid var(--cor-principal);
+    border: 2px solid var(--main-color);
     border-radius: 50%;
 
     aspect-ratio: 1 / 1;
@@ -509,7 +523,7 @@ h2 {
 .nome-membro {
     margin-top: 20px;
 
-    color: var(--cor-principal);
+    color: var(--main-color);
     font-size: 1.75rem;
     font-weight: bold;
 }
@@ -529,9 +543,9 @@ h2 {
 
     border-radius: 12px 0 0 12px;
 
-    background: var(--cor-principal);
+    background: var(--main-color);
 
-    color: var(--texto-destaque);
+    color: var(--highlight-text);
     font-size: 1.5rem;
 
     display: flex;
@@ -560,11 +574,11 @@ h2 {
     width: 100%;
     padding: 20px;
 
-    border: 1px solid var(--cor-principal);
+    border: 1px solid var(--main-color);
     border-radius: 12px;
 
-    background: var(--fundo);
-    box-shadow: 0 0 25px hsl(from var(--cor-principal) h s l / 25%);
+    background: var(--bg);
+    box-shadow: 0 0 25px hsl(from var(--main-color) h s l / 25%);
 
     gap: 20px;
 
@@ -576,7 +590,7 @@ h2 {
 #contato label {
     margin-bottom: 10px;
 
-    color: var(--texto-destaque);
+    color: var(--highlight-text);
     font-size: 1.5rem;
     font-weight: bold;
 
@@ -588,10 +602,10 @@ h2 {
     width: 100%;
     padding: 10px;
 
-    border: 2px solid var(--fundo-3);
+    border: 2px solid var(--lighter-bg);
     border-radius: 12px;
 
-    background: var(--fundo-2);
+    background: var(--light-bg);
 
     color: white;
     font-size: 1.5rem;
@@ -601,19 +615,13 @@ h2 {
     resize: none;
 }
 
-#contato input:focus,
-#contato textarea:focus {
-    outline: 0;
-    border: 2px solid var(--cor-principal);
-}
-
 #contato button {
     padding: 15px 20px;
 
-    border: 1px solid var(--cor-principal);
+    border: 1px solid var(--main-color);
     border-radius: 10px;
 
-    background: var(--fundo-2);
+    background: var(--light-bg);
 
     color: white;
     font-size: 1.25rem;
@@ -621,8 +629,9 @@ h2 {
     justify-self: end;
 }
 
-#contato button:hover {
-    background: var(--gradiente-botoes);
+#contato button:hover,
+#contato button:focus-visible {
+    background: var(--btn-gradient);
 }
 
 
@@ -634,7 +643,7 @@ h2 {
 @media (max-width: 768px) {
     /* Menu hambúrguer */
 
-    #btn-mobile {
+    #btn-menu {
         display: inline-block;
     }
 
@@ -643,13 +652,14 @@ h2 {
         height: calc(100vh - 100%);
         padding-left: 20px;
 
-        background: var(--fundo);
+        background: var(--bg);
 
         position: absolute;
         top: 100%;
         right: 0;
 
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
 
         transition: opacity 0.2s linear;
@@ -657,6 +667,7 @@ h2 {
 
     #navbar.active {
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
     }
 
@@ -758,7 +769,7 @@ h2 {
     #contato button {
         border: none;
 
-        background: var(--gradiente-botoes);
+        background: var(--btn-gradient);
 
         justify-self: stretch;
     }

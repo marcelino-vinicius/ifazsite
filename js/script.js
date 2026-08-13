@@ -1,12 +1,12 @@
 const mediaMobile = window.matchMedia("(max-width: 768px)");
 
-// Menu hambúrguer
+// ===== MENU HAMBÚRGUER =====
 
 const areaPrincipal = document.querySelector("main");
-const botaoMenu = document.getElementById("btn-mobile");
+const botaoMenu = document.getElementById("btn-menu");
 const iconeMenu = botaoMenu.querySelector("i");
 const menuMobile = document.getElementById("navbar");
-const linksMenu = document.querySelectorAll("#menu a");
+const linksMenu = menuMobile.querySelectorAll("a");
 
 function controlarDesfoque(elemento) {
     elemento.classList.toggle("desfoque");
@@ -15,8 +15,14 @@ function controlarDesfoque(elemento) {
 function controlarMenu(botaoMenu) {
     if (iconeMenu.classList.contains("fa-bars")) {
         iconeMenu.classList.replace("fa-bars", "fa-x");
+
+        botaoMenu.setAttribute("aria-expanded", "true");
+        botaoMenu.setAttribute("aria-label", "Fechar menu");
     } else {
         iconeMenu.classList.replace("fa-x", "fa-bars");
+
+        botaoMenu.setAttribute("aria-expanded", "false");
+        botaoMenu.setAttribute("aria-label", "Abrir menu");
     }
 
     controlarDesfoque(areaPrincipal);
@@ -43,52 +49,135 @@ linksMenu.forEach(link => {
 mediaMobile.addEventListener("change", (e) => {
     if (!e.matches) {
         menuMobile.classList.remove("active");
-        areaPrincipal.classList.remove("desfoque");
+        areaPrincipal.classList.remove("unfocus");
 
         iconeMenu.classList.replace("fa-x", "fa-bars");
     }
 });
 
-// Carrossel de projetos
 
-const faixa = document.getElementById('faixa');
-const nexbutton = document.getElementById('next-btn');
-const prevbutton = document.getElementById('prev-btn');
-const projetos = document.querySelectorAll('.projeto');
+// ===== CONFIGURAÇÃO DE CARROSSÉIS =====
 
-let index = 0;
+function atualizarElementos(
+    faixa,
+    elementos,
+    index
+) {
+    const WIDTH = elementos[0].clientWidth;
+    const DISTANCIA = faixa.classList.contains("faixa-projetos")
+        ? WIDTH
+        : WIDTH + 30;
 
-function updateCarrossel() {
-    const width = projetos[0].clientWidth;
-    faixa.style.transform = `translateX(${-index * width}px)`;
-
+    faixa.style.transform =
+        `translateX(${-index * DISTANCIA}px)`;
 }
 
-nexbutton.addEventListener('click', () => {
-    index++;
-    if (index > projetos.length - 1) {
-        index = 0;
+function configurarCarrossel(
+    faixa,
+    nextBotao,
+    prevBotao,
+    elementos
+) {
+    let index = 0;
+    const metade = elementos.length / 2;
+
+    function reset(novoIndex) {
+        faixa.style.transition = "none";
+
+        index = novoIndex;
+        atualizarElementos(faixa, elementos, index);
+
+        void faixa.offsetWidth;
+
+        faixa.style.transition = "transform 0.2s ease";
     }
-    updateCarrossel();
-})
 
-prevbutton.addEventListener('click', () => {
-    index--;
-    if (index < 0) {
-        index = projetos.length - 1;
+    nextBotao.addEventListener("click", () => {
+        if (index >= metade) {
+            reset(0);
+        }
+
+        index++;
+        atualizarElementos(faixa, elementos, index);
+    })
+
+    prevBotao.addEventListener('click', () => {
+        if (index <= 0) {
+            reset(elementos.length / 2);
+        }
+
+        index--;
+        atualizarElementos(faixa, elementos, index);
+    });
+}
+
+// ===== CARROSSEL DE PROJETOS =====
+
+const faixaProjetos = document.querySelector(".faixa-projetos");
+const nextProjeto = document.getElementById("next-projeto");
+const prevProjeto = document.getElementById("prev-projeto");
+const projetos = document.querySelectorAll(".projeto");
+
+configurarCarrossel(
+    faixaProjetos,
+    nextProjeto,
+    prevProjeto,
+    projetos
+);
+
+let intervaloCarrossel;
+
+function iniciarCarrossel() {
+    clearInterval(intervaloCarrossel);
+
+    intervaloCarrossel = setInterval(() => {
+        nextProjeto.click();
+    }, 10000);
+}
+
+function pararCarrossel() {
+    clearInterval(intervaloCarrossel);
+}
+
+const projetosContainer = document.getElementById("projetos-container");
+
+projetosContainer.addEventListener("focusin", () => {
+    pararCarrossel();
+});
+
+projetosContainer.addEventListener("focusout", (evento) => {
+    if (!projetosContainer.contains(evento.relatedTarget)) {
+        iniciarCarrossel();
     }
-    updateCarrossel();
-})
+});
 
-setInterval(() => { nexbutton.click(); }, 10000); // Poderia simular o clique com: nextbutton.click()
+// ===== CARROSSEL DA EQUIPE =====
+
+const faixaMembros = document.querySelector(".faixa-equipe");
+const nextMembro = document.getElementById("next-membro");
+const prevMembro = document.getElementById("prev-membro");
+const membros = faixaMembros.querySelectorAll(".membro");
+
+configurarCarrossel(faixaMembros, nextMembro, prevMembro, membros);
+
+// ===== FOCAR SERVIÇOS =====
+
+const servicos = document.querySelectorAll(".servico");
+
+servicos.forEach(servico => {
+    servico.addEventListener("focus", () => {
+        servico.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+});
 
 
-//-------------------------------------- AREA DE CONTATO 
+// ===== ÁREA DE CONTATO =====
 
-// ------ BOTAO
+const submitButton = document.querySelector("#contato button");
 
-const submitButton = document.querySelectorAll('[type="submit"]')
-
-submitButton.addEventListener('click', () => {
-    console.log("ENVIOU")
+submitButton.addEventListener("click", () => {
+    console.log("Enviou");
 })

@@ -256,9 +256,7 @@ h2 {
 }
 
 .video-equipe h2 {
-    padding: 10px 0 20px 0;
-
-    display: none;
+    padding: 0 0 20px 0;
 }
 
 .video-equipe iframe {
@@ -266,6 +264,10 @@ h2 {
 
     border: 0;
     border-radius: 12px;
+
+    box-shadow:
+        0 0 25px hsl(from var(--main-color) h s l / 50%),
+        0 0 25px hsl(from var(--dark-color) h s l / 50%);
 
     aspect-ratio: 16 / 9;
 }
@@ -634,6 +636,37 @@ h2 {
     background: var(--btn-gradient);
 }
 
+#info-contato a {
+    padding: 5px;
+
+    position: relative;
+}
+
+#info-contato a:focus-visible {
+    border-radius: 12px;
+
+    outline: 2px solid var(--bg);
+    outline-offset: 2px;
+}
+
+#info-contato a::before {
+    content: "";
+
+    width: 0%;
+    height: 2px;
+
+    background-color: var(--light-bg);
+
+    position: absolute;
+    bottom: 0;
+
+    transition: width 0.2s ease;
+}
+
+#info-contato a:hover::before {
+    width: 100%;
+}
+
 
 
 
@@ -697,6 +730,8 @@ h2 {
     /* Vídeo da equipe */
 
     .video-equipe h2 {
+        padding: 10px 0 20px 0;
+
         display: block;
     }
 

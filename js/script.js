@@ -160,24 +160,33 @@ const membros = faixaMembros.querySelectorAll(".membro");
 
 configurarCarrossel(faixaMembros, nextMembro, prevMembro, membros);
 
-// ===== FOCAR SERVIÇOS =====
 
-const servicos = document.querySelectorAll(".servico");
+// ===== FOCAR ELEMENTOS =====
 
-servicos.forEach(servico => {
-    servico.addEventListener("focus", () => {
-        servico.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+function ajustarRolagem(elementos, posicao) {
+    elementos.forEach(elemento => {
+        elemento.addEventListener("focus", () => {
+            elemento.scrollIntoView({
+                behavior: "smooth",
+                block: posicao
+            });
         });
     });
-});
+}
+
+const servicos = document.querySelectorAll(".servico");
+const botoesControle = document.querySelectorAll(".prev-btn, .next-btn");
+
+ajustarRolagem(servicos, "start");
+ajustarRolagem(botoesControle, "center");
 
 
 // ===== ÁREA DE CONTATO =====
 
-const submitButton = document.querySelector("#contato button");
+const formulario = document.querySelector("form");
 
-submitButton.addEventListener("click", () => {
-    console.log("Enviou");
-})
+formulario.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    console.log("Formulário enviado!");
+});

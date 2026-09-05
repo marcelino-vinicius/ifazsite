@@ -41,3 +41,5 @@ projetosContainer.addEventListener("focusout", (evento) => {
         iniciarCarrossel()
     }
 })
+
+iniciarCarrossel()

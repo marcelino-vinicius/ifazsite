@@ -1,0 +1,5 @@
+import "./menu.js"
+import "./projetos.js"
+import "./equipe.js"
+import "./contato.js"
+import "./acessibilidade.js"

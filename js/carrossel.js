@@ -25,7 +25,7 @@ export function configurarCarrosselInfinito(
         faixa.style.transition = "none"
 
         indice = novoindice
-        atualizarElementos(faixa, elementos, indice, 30)
+        atualizarElementos(faixa, elementos, indice)
 
         void faixa.offsetWidth
 
@@ -38,7 +38,7 @@ export function configurarCarrosselInfinito(
         }
 
         indice++
-        atualizarElementos(faixa, elementos, indice, 30)
+        atualizarElementos(faixa, elementos, indice)
     })
 
     prevBotao.addEventListener('click', () => {
@@ -47,7 +47,7 @@ export function configurarCarrosselInfinito(
         }
 
         indice--
-        atualizarElementos(faixa, elementos, indice, 30)
+        atualizarElementos(faixa, elementos, indice)
     })
 }
 
@@ -56,20 +56,21 @@ export function configurarCarrosselFinito(
     nextBotao,
     prevBotao,
     elementos,
+    maxIndice
 ) {
     let indice = 0
 
     nextBotao.addEventListener("click", () => {
-        if (indice < 4) {
+        if (indice < maxIndice) {
             indice++
-            atualizarElementos(faixa, elementos, indice)
+            atualizarElementos(faixa, elementos, indice, 30)
         }
     })
 
     prevBotao.addEventListener('click', () => {
         if (indice > 0) {
             indice--
-            atualizarElementos(faixa, elementos, indice)
+            atualizarElementos(faixa, elementos, indice, 30)
         }
     })
 }

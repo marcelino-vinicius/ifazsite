@@ -40,7 +40,7 @@ html {
 body {
     min-height: 100vh;
 
-    background: var(--dark-bg) url("../images/background.png") fixed;
+    background: var(--dark-bg) url("../imagens/fundo.png") fixed;
     backdrop-filter: blur(10px);
 
     color: var(--text);
